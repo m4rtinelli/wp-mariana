@@ -5,12 +5,15 @@
   max-width: 100%;
   display: grid;
   align-content: center;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 20px;
   row-gap: 54px;
   padding-bottom: 70px;
 }
 
+.work-a {
+  max-width: max-content;
+}
 @media (max-width: 1450px) {
   .work-gallery-wrapper-home {
     grid-template-columns: repeat(5, auto);

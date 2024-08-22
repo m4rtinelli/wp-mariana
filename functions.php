@@ -93,6 +93,7 @@ $cmb->add_field( [
 
 ]);
 
+// imagem personal preview
 $cmb->add_field( [
 	'name' => 'Imagem',
 'id' => 'preview_image',
@@ -105,7 +106,7 @@ $cmb->add_field( [
 ],
 		
 		]);
-
+// 
 
 $imagens_personal = $cmb->add_field([
 'name' => 'imagens',
