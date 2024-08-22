@@ -1,0 +1,77 @@
+.overlay-home {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--preto);
+
+  transition: transform 1s ease-in-out;
+  z-index: 9999;
+  cursor: none;
+}
+body,
+html {
+  cursor: none;
+}
+
+.cursor-circle {
+  content: "";
+  position: absolute;
+  width: 22px; /* Tamanho do círculo */
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--branco);
+  background: transparent;
+  pointer-events: none;
+  z-index: 100000000;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease-out, transform 0.3s ease;
+}
+
+.cursor-circle.expand {
+  z-index: 9000000;
+  background-color: var(--branco);
+  mix-blend-mode: difference;
+}
+
+.black-border {
+  border: 1px solid var(--preto);
+}
+
+.overlay-home.overlay-open {
+  transform: translateY(-100%);
+}
+
+.overlay-enter {
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  color: var(--branco);
+}
+
+.overlay-enter span {
+  font-family: "Times New Roman";
+  font-size: var(--menu);
+  text-transform: uppercase;
+}
+
+.overlay-enter h1 {
+  cursor: none;
+  font-family: "Times New Roman";
+  text-transform: uppercase;
+  font-size: var(--menu);
+  text-wrap: nowrap;
+}
+
+#enter {
+  cursor: none;
+}

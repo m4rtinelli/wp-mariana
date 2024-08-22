@@ -1,0 +1,37 @@
+footer {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  padding-bottom: 16px;
+}
+
+footer a {
+  font-family: "Times Ten Roman";
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  justify-self: flex-end;
+  padding-right: 40px;
+}
+
+.footer-page-works {
+  margin-top: 22px;
+}
+
+@media (max-width: 750px) {
+  footer {
+    margin-top: 100px;
+    padding: 0px;
+    justify-content: center;
+  }
+
+  footer a {
+    padding: 0px;
+  }
+}
+
+@media (max-height: 700px) {
+  footer {
+    margin-top: 22px;
+  }
+}

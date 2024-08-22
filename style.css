@@ -1,0 +1,47 @@
+/*
+Theme Name: Mariana Valente
+Theme URI: https://mariana-valente.com
+Author: joyce kiesel e henrique m.
+Author URI: https://joycearchives.com
+Version: 1.3
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+*/
+
+/* reset */
+@import url("./css/reset.css");
+@import url("./css/colors.css");
+/*  */
+
+/* overlay */
+@import url("./css/overlay-home.css");
+/*  */
+
+/* header */
+@import url("./css/header.css");
+/*  */
+
+/* home */
+@import url("./css/home.css");
+/*  */
+
+/* info */
+@import url("./css/info.css");
+/*  */
+
+/* work */
+@import url("./css/work.css");
+/*  */
+
+/* diary */
+@import url("./css/diary.css");
+/*  */
+
+/* carrossel */
+@import url("./css/carrossel.css");
+/*  */
+
+/* footer */
+@import url("./css/footer.css");
+/*  */

@@ -1,0 +1,31 @@
+:root {
+  --branco: #ffffff;
+  --preto: #000000;
+  --cinza: #5e5e5e;
+  --menu: 14px;
+}
+
+body {
+  background-color: var(--branco);
+}
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.anima-opacity {
+  opacity: 100% !important;
+}
+
+a {
+  cursor: none;
+}
+
+@media (max-width: 650px) {
+  body {
+    cursor: default !important;
+  }
+}

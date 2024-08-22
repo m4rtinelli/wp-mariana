@@ -1,0 +1,49 @@
+.work-gallery-wrapper-diary {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 100px;
+  max-width: 100%;
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(6, auto);
+  column-gap: 20px;
+  row-gap: 54px;
+  padding-bottom: 70px;
+}
+
+@media (max-width: 1450px) {
+  .work-gallery-wrapper-diary {
+    grid-template-columns: repeat(5, auto);
+    column-gap: 14px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .work-gallery-wrapper-diary {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 14px;
+    padding-bottom: 42px;
+  }
+}
+
+@media (max-width: 750px) {
+  .work-gallery-wrapper-diary {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 14px;
+  }
+}
+
+@media (max-width: 620px) {
+  .work-gallery-wrapper-diary {
+    display: flex;
+    gap: 48px;
+    padding-right: 0px;
+    padding-left: 0px;
+    overflow: hidden;
+    justify-self: center;
+    width: 290px;
+    padding-top: 72px;
+    scroll-behavior: smooth; /* Rola suavemente */
+    transition: transform 0.3s ease-in-out; /* Transição suave para a transformação */
+  }
+}
