@@ -1,5 +1,5 @@
 <?php 
-// Template Name: single personal
+// Template Name: single work
 ?>
 
 
@@ -42,9 +42,9 @@
   <div class="work-info-mobile">
     <p class="underline">Personal </p>
     <span class="work-info-mobile-space">|</span>
-    <p><?php the_field2('title-work'); ?></p>
+    <p><?php the_field2('title-work-page-work'); ?></p>
     <span>,</span>
-    <p><?php the_field2('ano-work'); ?></p>
+    <p><?php the_field2('ano-work-page-work'); ?></p>
   </div>
 
   <main class="carrossel-works">
@@ -56,13 +56,13 @@
     <ul class="carrossel-image-wrapper">
 
     <?php 
-    $imagens_personal = get_field2('imagens-personal');
+    $imagens_work = get_field2('imagens-work');
 
-if(isset($imagens_personal)) { foreach($imagens_personal as $imagem_personal) {
+if(isset($imagens_work)) { foreach($imagens_work as $imagem_work) {
 
     ?>
      <li class="carrossel-slide">
-        <img src="<?php echo $imagem_personal['imagem']; ?>" alt="imagem 1 beauty series">
+        <img src="<?php echo $imagem_work['imagem-w']; ?>" alt="imagem do trabalho">
       </li>
 
     <?php 

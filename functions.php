@@ -123,6 +123,7 @@ $imagens_personal = $cmb->add_field([
 
 ]);
 
+
 $cmb->add_group_field($imagens_personal, [
 'name' => 'Imagem',
 'id' => 'imagem',
@@ -135,14 +136,98 @@ $cmb->add_group_field($imagens_personal, [
 	'url' => false,
 ],
 
-
 ]);
 
 };
+// -------------------------------------------------------------------------
+// pagina work
+// -------------------------------------------------------------------------
+add_action('cmb2_admin_init', 'cmb2_fields_work');
+
+function cmb2_fields_work(){
+	
+	remove_post_type_support('work', 'editor');
 
 
-// 
 
+$cmbWork = new_cmb2_box([
+	'id' => 'work_box',
+	'title' => 'Work',
+	'object_types' => ['work'],
+	'show-on' => [
+		'key' => 'page-template',
+		'value' => 'single-work.php',
+	],
+	]);
+
+
+	$cmbWork->add_field( [
+		'name' => 'Título',
+		'id' => 'title-work-page-work',
+		'type' => 'text',
+		
+		]);
+
+		$cmbWork->add_field( [
+			'name' => 'Ano',
+			'id' => 'ano-work-page-work',
+			'type' => 'text_small',
+			]);
+
+
+			// imagew preview
+			$cmbWork->add_field( [
+				'name' => 'Imagem',
+			'id' => 'preview_image_page_work',
+			'type' => 'file',
+			'preview_size' => [100, 100],
+			'desc' => 'Essa foto é o preview que aparece na home',
+			
+			'options' => [
+				'url' => false,
+			],
+					
+					]);
+					// 
+					// repeater field pagina work
+					$imagens_work = $cmbWork->add_field([
+						'name' => 'imagens',
+						'id' => 'imagens-work',
+						'type' => 'group',
+						'repeatable' => true,
+						
+						
+						'options' => [
+							'group_title' => 'Foto {#}',
+							'add_button' => 'Adicionar Imagem' ,
+							'sortable' => true,
+						],
+						
+						]);
+						
+						$cmbWork->add_group_field($imagens_work, [
+							'name' => 'Imagem',
+							'id' => 'imagem-w',
+							'type' => 'file',
+							'preview_size' => [200, 200],
+							
+							'desc' => 'Lembre-se de sempre colocar a imagem no menor tamanho de arquivo possível, de preferência a JPG. Quanto menor o tamanho do arquivo, mais rápido o carregamento do site.',
+							
+							'options' => [
+								'url' => false,
+							],
+							
+							]);
+
+	};
+// ------------------------------------------fim pagina work-----------------
+
+// PAGINA DIARY
+// -------------------------------------------------------------------------
+
+
+
+// --------------------------FIM DA PAGINA DIARY----------------------------
 // custom post type
 
 function custom_post_type_personal() {
@@ -176,7 +261,42 @@ function custom_post_type_personal() {
 		)
 	));
 }
-add_action('init', 'custom_post_type_personal')
+add_action('init', 'custom_post_type_personal');
+
+
+
+function custom_post_type_work() {
+	register_post_type('work', array(
+		'label' => 'Work',
+		'description' => 'Work',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'rewrite' => array('slug' => 'work', 'with_front' => true),
+		'query_var' => true,
+		'supports' => array('title', 'editor', 'page-attributes','post-formats'),
+
+		'labels' => array (
+			'name' => 'Work',
+			'singular_name' => 'Work',
+			'menu_name' => 'Work',
+			'add_new' => 'Adicionar Novo',
+			'add_new_item' => 'Adicionar Novo Trabalho (Work)',
+			'edit' => 'Editar',
+			'edit_item' => 'Editar Work',
+			'new_item' => 'Novo Work',
+			'view' => 'Ver Work',
+			'view_item' => 'Ver Work',
+			'search_items' => 'Procurar Trabalho',
+			'not_found' => 'Nenhum Trabalho Encontrado',
+			'not_found_in_trash' => 'Nenhum Trabalho Encontrado no Lixo',
+		)
+	));
+}
+add_action('init', 'custom_post_type_work');
 
 
 ?>

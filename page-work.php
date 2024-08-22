@@ -53,230 +53,34 @@
 
     <main class="work-gallery-wrapper-work">
 
+    <?php 
+    $args = array(
+      'post_type' => 'work',
+       'order' => 'ASC'
+    );
 
+   
 
-      <a href="./amanda.html">
+    $the_query = new WP_Query ( $args );
+    ?>
+
+    <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+      <a href="<?php the_permalink(); ?>">
         <div class="work expand-on-hover">
           <div class="work-gallery-img-wrapper">
-            <img src="./assets/img/work-page-images/work-page-img-1.jpg" alt="work-image">
+            <img src="<?php the_field2('preview_image_page_work') ?>" alt="work-image">
           </div>
 
           <div class="work-gallery-info">
-            <p>Amanda</p>
-            <span>2024</span>
+            <p><?php the_field2('title-work-page-work'); ?></p>
+            <span><?php the_field2('ano-work-page-work'); ?></span>
           </div>
         </div>
       </a>
+      <?php endwhile; else: endif; ?>
 
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-2.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-3.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-4.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-5.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-6.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-7.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-8.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-9.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-10.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-11.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-12.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-13.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-14.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-15.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-16.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-17.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-18.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-19.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
-
-      <div class="work expand-on-hover">
-        <div class="work-gallery-img-wrapper">
-          <img src="./assets/img/work-page-images/work-page-img-20.jpg" alt="work-image">
-        </div>
-
-        <div class="work-gallery-info">
-          <p>Beauty Series</p>
-          <span>2024</span>
-        </div>
-      </div>
+     
     </main>
 
     <div class="carrossel-work-navigator">
