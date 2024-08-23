@@ -301,12 +301,128 @@ $cmbDiary = new_cmb2_box([
 						
 						]);
 
-
+				
 
 
 }
 
 // --------------------------FIM DA PAGINA DIARY----------------------------
+
+// PAGINA INFO
+// --------------------------------------------------
+
+add_action('cmb2_admin_init', 'cmb2_fields_info');
+
+function cmb2_fields_info(){
+remove_post_type_support('info', 'editor');
+
+$cmbInfo = new_cmb2_box([
+	'id' => 'info_box',
+	'title' => 'Representation Info',
+	'object_types' => ['info'],
+	'show-on' => [
+		'key' => 'page-template',
+		'value' => 'single-info.php',
+	],
+	]);
+
+	// represented by-----
+
+	$cmbInfo->add_field( [
+		'name' => 'Represented',
+		'id' => 'represented',
+		'type' => 'text',
+		
+		]);
+
+		
+		$cmbInfo->add_field( [
+			'name' => 'Email 1',
+			'id' => 'email_rep',
+			'type' => 'text',
+			
+			]);
+
+					
+		$cmbInfo->add_field( [
+			'name' => 'Telefone 1',
+			'id' => 'telefone_rep',
+			'type' => 'text',
+			
+			]);
+
+		$cmbInfo->add_field( [
+			'name' => 'Email 2',
+			'id' => 'email_rep_2',
+			'type' => 'text',
+			
+			]);
+
+			$cmbInfo->add_field( [
+				'name' => 'Telefone 2',
+				'id' => 'telefone_rep_2',
+				'type' => 'text',
+				
+				]);
+
+// artist info
+
+$cmbInfoArtist = new_cmb2_box([
+	'id' => 'artist_box',
+	'title' => 'Artist Info',
+	'object_types' => ['info'],
+	'show-on' => [
+		'key' => 'page-template',
+		'value' => 'single-info.php',
+	],
+	]);
+
+	$cmbInfoArtist->add_field( [
+		'name' => 'Location',
+		'id' => 'based',
+		'type' => 'text',
+		]);
+
+
+		$cmbInfoArtist->add_field( [
+			'name' => 'Instagram',
+			'id' => 'insta',
+			'type' => 'text',
+			]);
+
+			$cmbInfoArtist->add_field( [
+				'name' => 'Instagram Link',
+				'id' => 'insta-link',
+				'type' => 'text',
+				]);
+
+				$cmbInfoArtist->add_field( [
+					'name' => 'Personal Phone',
+					'id' => 'artist-phone',
+					'type' => 'text',
+					]);
+
+				$cmbInfoArtist->add_field( [
+					'name' => 'Personal E-mail',
+					'id' => 'artist-email',
+					'type' => 'text',
+					]);
+
+					$cmbInfoArtist->add_field( [
+						'name' => 'Imagem Pagina Info',
+					'id' => 'info-img',
+					'type' => 'file',
+					'preview_size' => [200, 200],
+					'desc' => 'Essa foto é a que aparecerá na pagina Info',
+					
+					'options' => [
+						'url' => false,
+					],
+				]);
+
+
+}
+// --------------------------------fim da pagina info------------------------
 // custom post type
 
 function custom_post_type_personal() {
@@ -410,6 +526,39 @@ function custom_post_type_diary() {
 	));
 }
 add_action('init', 'custom_post_type_diary');
+
+function custom_post_type_info() {
+	register_post_type('info', array(
+		'label' => 'Info',
+		'description' => 'Info',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'rewrite' => array('slug' => 'info', 'with_front' => true),
+		'query_var' => true,
+		'supports' => array('title', 'editor', 'page-attributes','post-formats'),
+
+		'labels' => array (
+			'name' => 'Info',
+			'singular_name' => 'Info',
+			'menu_name' => 'Info',
+			'add_new' => 'Adicionar Novo',
+			'add_new_item' => 'Adicionar Novo Trabalho (Info)',
+			'edit' => 'Editar',
+			'edit_item' => 'Editar Info',
+			'new_item' => 'Novo Info',
+			'view' => 'Ver Info',
+			'view_item' => 'Ver Info',
+			'search_items' => 'Procurar Trabalho',
+			'not_found' => 'Nenhum Trabalho Encontrado',
+			'not_found_in_trash' => 'Nenhum Trabalho Encontrado no Lixo',
+		)
+	));
+}
+add_action('init', 'custom_post_type_info');
 
 ?>
 

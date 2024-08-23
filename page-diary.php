@@ -62,7 +62,7 @@
 
     <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-      <a href="./summer.html">
+      <a href="<?php the_permalink(); ?>">
         <div class="work expand-on-hover">
           <div class="work-gallery-img-wrapper">
             <img src="<?php the_field2('preview_image_page_diary') ?>" alt="work-image">

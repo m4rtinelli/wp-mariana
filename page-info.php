@@ -43,30 +43,44 @@
   <main class="info-section-wrapper">
     <section class="info-management">
 
-      <p>REPRESENTED BY GROUP ART MANAGEMENT</p>
-      <p><a href="mailto:thaisi@groupart.com.br" class="expand-on-hover">thaisi@groupart.com.br</a>
-        <a href="tel:+5511944451313" class="expand-on-hover">+55 (11) 94445-1313</a>
+    <?php 
+    $args = array(
+      'post_type' => 'info',
+       'order' => 'ASC'
+    );
+
+   
+
+    $the_query = new WP_Query ( $args );
+    ?>
+
+    <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+      <p><?php the_field2('represented') ?></p>
+      <p><a href="mailto:<?php the_field2('email_rep'); ?>" class="expand-on-hover"><?php the_field2('email_rep'); ?></a>
+        <a href="tel:+5511944451313" class="expand-on-hover"><?php the_field2('telefone_rep'); ?></a>
       </p>
 
-      <p><a href="mailto:jardel@groupart.com.br" class="expand-on-hover">jardel@groupart.com.br</a>
-        <a href="tel:+5511967790125" class="expand-on-hover">+55 (11) 96779-0125</a>
+      <p><a href="mailto:<?php the_field2('email_rep_2'); ?>" class="expand-on-hover"><?php the_field2('email_rep_2'); ?></a>
+        <a href="tel:+5511967790125" class="expand-on-hover"><?php the_field2('telefone_rep_2'); ?></a>
       </p>
 
     </section>
 
     <section class="artist-info">
       <div class="artist-info-wrapper">
-        <p>Based in New York</p>
-        <a href="https://www.instagram.com/mariana.valente_/" target="_blank" class="expand-on-hover">@MARIANA.VALENTE_</a>
-        <a href="tel:+5511971987979" class="expand-on-hover">+55 (11) 97198-7979</a>
-        <a class="underline expand-on-hover" href="mailto:hello@marianavalente.com">hello@marianavalente.com</a>
+        <p><?php the_field2('based') ?></p>
+        <a href="<?php the_field2('insta-link'); ?>" target="_blank" class="expand-on-hover"><?php the_field2('insta') ?></a>
+        <a href="tel:+5511971987979" class="expand-on-hover"><?php the_field2('artist-phone'); ?></a>
+        <a class="underline expand-on-hover" href="mailto:<?php the_field2('artist-email'); ?>"><?php the_field2('artist-email'); ?></a>
       </div>
 
 
       <div class="info-img-wrapper expand-on-hover">
-        <img src="./assets/img/info-img/profile.jpg" alt="Imagem da Artista">
+        <img src="<?php the_field2('info-img'); ?>" alt="Imagem da Artista">
       </div>
 
+      <?php endwhile; else: endif; ?>
     </section>
 
   </main>
