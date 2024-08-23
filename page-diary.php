@@ -24,10 +24,10 @@
 
     <div class="header-overlay-mobile">
       <ul class="header-overlay-menu">
-        <li><a href="work.html">Work</a></li>
-        <li><a href="diary.html">Diary</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/diary/">Diary</a></li>
         <li><a href="/" class="overlay-selected">Personal</a></li>
-        <li><a href="info.html">Info</a></li>
+        <li><a href="/info/">Info</a></li>
       </ul>
 
       <div class="contact-header-mobile">
@@ -49,18 +49,33 @@
     </div>
     <main class="work-gallery-wrapper-diary">
 
+    <?php 
+    $args = array(
+      'post_type' => 'diary',
+       'order' => 'ASC'
+    );
+
+   
+
+    $the_query = new WP_Query ( $args );
+    ?>
+
+    <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
       <a href="./summer.html">
         <div class="work expand-on-hover">
           <div class="work-gallery-img-wrapper">
-            <img src="./assets/img/diary-images/diary-img-1.jpg" alt="work-image">
+            <img src="<?php the_field2('preview_image_page_diary') ?>" alt="work-image">
           </div>
 
           <div class="work-gallery-info">
-            <p>Summer</p>
-            <span>2022</span>
+            <p><?php the_field2('title-work-page-diary'); ?></p>
+            <span><?php the_field2('ano-work-page-diary'); ?></span>
           </div>
         </div>
       </a>
+
+      <?php endwhile; else: endif; ?>
     </main>
 
     <div class="carrossel-work-navigator">

@@ -24,10 +24,10 @@
 
     <div class="header-overlay-mobile">
       <ul class="header-overlay-menu">
-        <li><a href="work.html">Work</a></li>
-        <li><a href="diary.html">Diary</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/diary/">Diary</a></li>
         <li><a href="/" class="overlay-selected">Personal</a></li>
-        <li><a href="info.html">Info</a></li>
+        <li><a href="/info/">Info</a></li>
       </ul>
       <div class="contact-header-mobile">
         <a href="mailto:hello@marianavalente.com">hello@marianavalente.com</a>

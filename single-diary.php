@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+// Template Name: single work
+?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <title>Mariana Valente</title>
-</head>
+
+
+<?php get_header(); ?>
+
+<?php if( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 <body>
   <header>
     <a href="/" class="mariana-home-button expand-on-hover">Mariana Valente</a>
 
     <ul class="header-list">
-      <li><a href="work.html" class="expand-on-hover">Work</a></li>
-      <li><a href="diary.html" class="expand-on-hover">Diary</a></li>
-      <li><a href="/" class="expand-on-hover header-selected">Personal</a></li>
-      <li><a href="info.html" class="expand-on-hover">Info</a></li>
+      <li><a href="/work/" class="expand-on-hover">Work</a></li>
+      <li><a href="/diary/" class="expand-on-hover header-selected header-selected">Diary</a></li>
+      <li><a href="/" class="expand-on-hover">Personal</a></li>
+      <li><a href="/info/" class="expand-on-hover">Info</a></li>
     </ul>
 
     <button class="hamburger-button">
@@ -27,10 +27,10 @@
 
     <div class="header-overlay-mobile">
       <ul class="header-overlay-menu">
-        <li><a href="work.html">Work</a></li>
-        <li><a href="diary.html">Diary</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/diary/">Diary</a></li>
         <li><a href="/" class="overlay-selected">Personal</a></li>
-        <li><a href="info.html">Info</a></li>
+        <li><a href="/info/">Info</a></li>
       </ul>
 
       <div class="contact-header-mobile">
@@ -40,38 +40,43 @@
   </header>
 
   <div class="work-info-mobile">
-    <p class="underline">Diary </p>
+    <p class="underline">Personal </p>
     <span class="work-info-mobile-space">|</span>
-    <p>Summer</p>
+    <p><?php the_field2('title-work-page-diary'); ?></p>
     <span>,</span>
-    <p>2024</p>
+    <p><?php the_field2('ano-work-page-diary'); ?></p>
   </div>
 
   <main class="carrossel-works">
     <div class="close-button expand-on-hover">
-      <a href="diary.html">X</a>
+      <a href="/">X</a>
     </div>
 
+
     <ul class="carrossel-image-wrapper">
-      <li class="carrossel-slide">
-        <img src="./assets/img/summer-images/-lFunZra.jpeg" alt="imagem 1 beauty series">
+
+    <?php 
+    $imagens_diary = get_field2('imagens-diary');
+
+if(isset($imagens_diary)) { foreach($imagens_diary as $imagem_diary) {
+
+    ?>
+     <li class="carrossel-slide">
+        <img src="<?php echo $imagem_diary['imagem-d']; ?>" alt="imagem do trabalho">
       </li>
 
-      <li class="carrossel-slide">
-        <img src="./assets/img/summer-images/-lFunZra.jpeg" alt="imagem 1 beauty series">
-      </li>
-
-      <li class="carrossel-slide">
-        <img src="./assets/img/summer-images/-lFunZra.jpeg" alt="imagem 1 beauty series">
-      </li>
+    <?php 
+}}
+    ?>
+ 
 
     </ul>
 
     <div class="carrossel-navigation-wrapper">
 
       <div class="carrossel-work-title">
-        <p class="title">Summer,</p>
-        <p class="year">2022</p>
+        <p class="title"><?php the_field2('title-work-page-diary') ;?>,</p>
+        <p class="year"><?php the_field2('ano-work-page-diary'); ?></p>
       </div>
 
       <div class="carrossel-counter">
@@ -101,4 +106,5 @@
 
 </body>
 
-</html>
+  <?php endwhile; else : endif; ?>
+  <?php get_footer(); ?>

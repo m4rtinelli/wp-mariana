@@ -225,7 +225,86 @@ $cmbWork = new_cmb2_box([
 // PAGINA DIARY
 // -------------------------------------------------------------------------
 
+add_action('cmb2_admin_init', 'cmb2_fields_diary');
 
+function cmb2_fields_diary(){
+remove_post_type_support('diary', 'editor');
+
+
+$cmbDiary = new_cmb2_box([
+	'id' => 'diary_box',
+	'title' => 'Diary',
+	'object_types' => ['diary'],
+	'show-on' => [
+		'key' => 'page-template',
+		'value' => 'single-diary.php',
+	],
+	]);
+
+
+	$cmbDiary->add_field( [
+		'name' => 'Título',
+		'id' => 'title-work-page-diary',
+		'type' => 'text',
+		
+		]);
+
+		$cmbDiary->add_field( [
+			'name' => 'Ano',
+			'id' => 'ano-work-page-diary',
+			'type' => 'text_small',
+			]);
+
+
+			// imagew preview
+			$cmbDiary->add_field( [
+				'name' => 'Imagem',
+			'id' => 'preview_image_page_diary',
+			'type' => 'file',
+			'preview_size' => [100, 100],
+			'desc' => 'Essa foto é o preview que aparece na home',
+			
+			'options' => [
+				'url' => false,
+			],
+		]);
+
+
+				// repeater field pagina diary-------------
+
+				$imagens_diary = $cmbDiary->add_field([
+					'name' => 'imagens',
+					'id' => 'imagens-diary',
+					'type' => 'group',
+					'repeatable' => true,
+					
+					
+					'options' => [
+						'group_title' => 'Foto {#}',
+						'add_button' => 'Adicionar Imagem' ,
+						'sortable' => true,
+					],
+					
+					]);
+					
+					$cmbDiary->add_group_field($imagens_diary, [
+						'name' => 'Imagem',
+						'id' => 'imagem-d',
+						'type' => 'file',
+						'preview_size' => [200, 200],
+						
+						'desc' => 'Lembre-se de sempre colocar a imagem no menor tamanho de arquivo possível, de preferência a JPG. Quanto menor o tamanho do arquivo, mais rápido o carregamento do site.',
+						
+						'options' => [
+							'url' => false,
+						],
+						
+						]);
+
+
+
+
+}
 
 // --------------------------FIM DA PAGINA DIARY----------------------------
 // custom post type
@@ -298,6 +377,39 @@ function custom_post_type_work() {
 }
 add_action('init', 'custom_post_type_work');
 
+
+function custom_post_type_diary() {
+	register_post_type('diary', array(
+		'label' => 'Diary',
+		'description' => 'Diary',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'rewrite' => array('slug' => 'diary', 'with_front' => true),
+		'query_var' => true,
+		'supports' => array('title', 'editor', 'page-attributes','post-formats'),
+
+		'labels' => array (
+			'name' => 'Diary',
+			'singular_name' => 'Diary',
+			'menu_name' => 'Diary',
+			'add_new' => 'Adicionar Novo',
+			'add_new_item' => 'Adicionar Novo Trabalho (Diary)',
+			'edit' => 'Editar',
+			'edit_item' => 'Editar Diary',
+			'new_item' => 'Novo Diary',
+			'view' => 'Ver Diary',
+			'view_item' => 'Ver Diary',
+			'search_items' => 'Procurar Trabalho',
+			'not_found' => 'Nenhum Trabalho Encontrado',
+			'not_found_in_trash' => 'Nenhum Trabalho Encontrado no Lixo',
+		)
+	));
+}
+add_action('init', 'custom_post_type_diary');
 
 ?>
 
