@@ -34,8 +34,9 @@
 }
 
 @media (max-width: 620px) {
-  .work-gallery-wrapper-diary {
+  .work-gallery-wrapper-work {
     display: flex;
+    flex-direction: column;
     gap: 48px;
     padding-right: 0px;
     padding-left: 0px;
@@ -43,7 +44,5 @@
     justify-self: center;
     width: 290px;
     padding-top: 72px;
-    scroll-behavior: smooth; /* Rola suavemente */
-    transition: transform 0.3s ease-in-out; /* Transição suave para a transformação */
   }
 }

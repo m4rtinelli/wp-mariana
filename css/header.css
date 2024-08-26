@@ -133,7 +133,7 @@ header .mariana-home-button:hover {
 }
 @media (max-width: 750px) {
   .contact-header-mobile {
-    display: block;
+    display: none;
     position: fixed;
     bottom: 10px;
     text-decoration: underline;

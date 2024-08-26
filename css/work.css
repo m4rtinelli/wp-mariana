@@ -35,13 +35,13 @@
 @media (max-width: 620px) {
   .work-gallery-wrapper-work {
     display: flex;
+    flex-direction: column;
     gap: 48px;
     padding-right: 0px;
     padding-left: 0px;
     overflow: hidden;
     justify-self: center;
     width: 290px;
-    scroll-behavior: smooth; /* Rola suavemente */
-    transition: transform 0.3s ease-in-out; /* Transição suave para a transformação */
+    padding-top: 72px;
   }
 }

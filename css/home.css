@@ -111,7 +111,11 @@
 
 @media (max-width: 660px) {
   .carrossel-fancy-counter {
-    display: block;
+    display: none;
+  }
+
+  .work-counter {
+    display: none;
   }
   .work-gallery-wrapper-counter {
     font-family: "Times New Roman";
@@ -137,6 +141,7 @@
 
   .work-gallery-wrapper-home {
     display: flex;
+    flex-direction: column;
     gap: 48px;
     padding-right: 0px;
     padding-left: 0px;
@@ -144,8 +149,6 @@
     justify-self: center;
     width: 290px;
     padding-top: 72px;
-    scroll-behavior: smooth; /* Rola suavemente */
-    transition: transform 0.3s ease-in-out; /* Transição suave para a transformação */
   }
 
   .work {
