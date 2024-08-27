@@ -34,7 +34,7 @@
 }
 
 @media (max-width: 620px) {
-  .work-gallery-wrapper-work {
+  .work-gallery-wrapper-diary {
     display: flex;
     flex-direction: column;
     gap: 48px;

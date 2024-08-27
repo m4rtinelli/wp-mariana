@@ -75,8 +75,8 @@ if(isset($imagens_personal)) { foreach($imagens_personal as $imagem_personal) {
     <div class="carrossel-navigation-wrapper">
 
       <div class="carrossel-work-title">
-        <p class="title"><?php the_field2('title-work-page-work') ;?>,</p>
-        <p class="year"><?php the_field2('ano-work-page-work'); ?></p>
+        <p class="title"><?php the_field2('title-work') ;?>,</p>
+        <p class="year"><?php the_field2('ano-work'); ?></p>
       </div>
 
       <div class="carrossel-counter">
